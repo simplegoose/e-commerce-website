@@ -542,7 +542,7 @@ span.checkout--total {
         position: fixed;
         top: 5.2rem;
         display: block;
-        width: 100%;
+        width: 80%;
         height: 1px;
         color: var(--light-grayish-blue);
     }
