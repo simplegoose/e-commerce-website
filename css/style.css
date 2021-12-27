@@ -116,7 +116,6 @@ hr {
     -webkit-transition: 0.25s linear;
     -o-transition: 0.25s linear;
     transition: 0.25s linear;
-    z-index: 1;
 }
 
 .nav-bar.open {
@@ -162,7 +161,6 @@ hr {
 .images-wrapper {
     position: relative;
     width: 100%;
-    z-index: -1;
 }
 
 .previous-wrapper,
@@ -672,15 +670,15 @@ span.checkout--total {
 
     .lightbox-inner-wrapper {
         position: relative;
-        width: 25%;
-        margin: 6rem auto;
+        width: 30%;
+        margin: 7rem auto;
         z-index: 2;
     }
 
     .close--lightbox {
         position: absolute;
         right: 0;
-        width: 0.8rem;
+        width: 1rem;
     }
 
     .close--lightbox img {
