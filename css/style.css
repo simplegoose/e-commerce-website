@@ -505,7 +505,7 @@ span.checkout--total {
     }
 
     .nav-bar {
-        position: absolute;
+        position: fixed;
         top: 0.6rem;
         left: 25%;
         max-height: 4rem;
@@ -539,7 +539,7 @@ span.checkout--total {
     }
 
     hr {
-        position: relative;
+        position: fixed;
         top: 5.2rem;
         display: block;
         width: 100%;
