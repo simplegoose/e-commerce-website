@@ -675,12 +675,9 @@ span.checkout--total {
     .lightbox-inner-wrapper {
         position: relative;
         width: 30%;
-<<<<<<< HEAD
         max-width: 420px;
         margin: 5.5rem auto;
-=======
         margin: 7rem auto;
->>>>>>> 7e4b4601893c509fea6f9dde3c1e27178ef522b1
         z-index: 2;
     }
 
