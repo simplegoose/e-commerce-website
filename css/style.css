@@ -120,6 +120,7 @@ hr {
     -webkit-transition: 0.25s linear;
     -o-transition: 0.25s linear;
     transition: 0.25s linear;
+    z-index: 2;
 }
 
 .nav-bar.open {
@@ -165,6 +166,7 @@ hr {
 .images-wrapper {
     position: relative;
     width: 100%;
+    z-index: inherit;
 }
 
 .previous-wrapper,
@@ -341,6 +343,7 @@ hr {
     width: 100vw;
     height: 100vh;
     background-color: var(--black-with-opacity);
+    z-index: 1;
 }
 
 .navbar-background.open {
@@ -357,7 +360,6 @@ hr {
     max-width: 500px;
     background-color: var(--main-color);
     border-radius: 10px;
-    z-index: -1;
 }
 
 .cart-div.open {
