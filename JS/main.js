@@ -143,7 +143,6 @@ addToCart.addEventListener('click', () => {
     }
 
     if (cartCheckoutFilled.childNodes.length > 0) {
-        console.log(cartCheckoutFilled.hasChildNodes);
         return
     }
 
