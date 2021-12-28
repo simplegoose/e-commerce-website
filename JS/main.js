@@ -26,8 +26,16 @@ const lightBoxImg = document.querySelector('.lightbox--image')
 const lightBoxNext = document.querySelector('.lightbox-next-wrapper')
 const lightBoxPrevious = document.querySelector('.lightbox-previous-wrapper')
 
+/**
+ * Add css class to the element with added-items element
+ * to show that it is empty.
+ */
 addedItems.classList.add('__empty')
 
+/**
+ * The following arrays store the paths to the different 
+ * assets to be used in the product page.
+ */
 const thumbnailArray = [
     './images/image-product-1-thumbnail.jpg',
     './images/image-product-2-thumbnail.jpg',
@@ -42,14 +50,18 @@ const imageArray = [
     './images/image-product-4.jpg'
 ];
 
-(function () {
-    for (let i = 0; i < thumbnailArray.length; i++) {
+/**
+ * The following function creates a carousel for the main image display
+ * and the light box carousel
+ */
+function createCarousel(arrLen, className, elementToAppend, srcChangingEl) {
+    for (let i = 0; i < arrLen; i++) {
         let thumbnailImg = document.createElement('img')
-        thumbnailImg.classList.add('product--thumbnail')
+        thumbnailImg.classList.add(className)
         thumbnailImg.src = thumbnailArray[i]
         thumbnailImg.addEventListener('click', () => {
-            const selectedThumnails = document.querySelectorAll('.product--thumbnail')
-            imgTag.src = imageArray[i]
+            const selectedThumnails = document.querySelectorAll(`.${className}`)
+            srcChangingEl.src = imageArray[i]
             for (let i = 0; i < selectedThumnails.length; i++) {
                 if(selectedThumnails[i].classList.contains('active')) {
                     selectedThumnails[i].classList.remove('active')
@@ -57,50 +69,42 @@ const imageArray = [
             }
             thumbnailImg.classList.add('active')
         })
-        carouselWrapper.appendChild(thumbnailImg)
-        const selectedThumnails = document.querySelectorAll('.product--thumbnail')
+        elementToAppend.appendChild(thumbnailImg)
+        const selectedThumnails = document.querySelectorAll(`.${className}`)
         selectedThumnails[0].classList.add('active');
-    }
-})()
-
-function lightBox() {
-    for (let i = 0; i < thumbnailArray.length; i++) {
-        let thumbnailImg = document.createElement('img')
-        thumbnailImg.classList.add('product--thumbnail')
-        thumbnailImg.src = thumbnailArray[i]
-        thumbnailImg.addEventListener('click', () => {
-            const selectedThumnails = document.querySelectorAll('.product--thumbnail')
-            lightBoxImg.src = imageArray[i]
-            lightBoxImageCounter = i
-            for (let i = 0; i < selectedThumnails.length; i++) {
-                if(selectedThumnails[i].classList.contains('active')) {
-                    selectedThumnails[i].classList.remove('active')
-                }  
-            }
-            thumbnailImg.classList.add('active')
-        })
-        lightboxCarouselWrapper.appendChild(thumbnailImg)
-        const selectedThumnails = lightboxCarouselWrapper.querySelectorAll('.product--thumbnail')
-        selectedThumnails[0].classList.add('active')
     }
 }
 
-lightBox()
+createCarousel(thumbnailArray.length, 'product--thumbnail', carouselWrapper, imgTag)
+createCarousel(thumbnailArray.length, 'lightbox-product--thumbnail', lightboxCarouselWrapper, lightBoxImg)
 
+/**
+ * An event listener to toggle the position of the navigation
+ * to appear.
+ */
 hamburgerMenu.addEventListener('click', () => {
     navBar.classList.toggle('open')
     navBarBackground.classList.toggle('open')
 })
 
+/**
+ * An event listener to toggle the position of the navigation
+ * to dissapear.
+ */
 closeIcon.addEventListener('click', () => {
     navBar.classList.toggle('open')
     navBarBackground.classList.toggle('open')
 })
-
+/**
+ * Variables for storing various values
+ */
 let imageCounter = 0
 let lightBoxImageCounter = 0
 let quantity = 0
 
+/**
+ * An event listener for changing the source of the product image.
+ */
 next.addEventListener('click', () => {
     if (imageCounter >= imageArray.length - 1) {
         return
@@ -111,6 +115,9 @@ next.addEventListener('click', () => {
     imgTag.src = imageArray[imageCounter]
 })
 
+/**
+ * An event listener for changing the source of the product image.
+ */
 previous.addEventListener('click', () => {
     if (imageCounter <= 0) {
         return
@@ -121,11 +128,19 @@ previous.addEventListener('click', () => {
     imgTag.src = imageArray[imageCounter]
 })
 
+/**
+ * An event listener for adding or the quantity of
+ * product selected.
+ */
 addQuantity.addEventListener('click', () => {
     quantity ++
     quantitySpan.textContent = quantity
 })
 
+/**
+ * An event listener for subtracting the quantity of
+ * product selected.
+ */
 removeQuantity.addEventListener('click', () => {
     if (quantity <= 0) {
        return 
@@ -135,6 +150,10 @@ removeQuantity.addEventListener('click', () => {
     quantitySpan.textContent = quantity
 })
 
+/**
+ * An event listener for creating then adding cart-checkout element 
+ * to the cart-div to display the quantity and price of the selected product.
+ */
 addToCart.addEventListener('click', () => {
     const cartCheckoutFilled = document.querySelector('.cart-checkout')
 
@@ -176,6 +195,7 @@ addToCart.addEventListener('click', () => {
         const cartItemContainer = cartCheckout.querySelector('.cart-items-container')
         const deleteIcon = cartItemContainer.querySelector('.delete--icon')
         cartCheckout.removeChild(deleteIcon.parentNode)
+        totalItemsSpan.textContent = 0
 
         if (cartCheckout.childNodes.length <= 0) {
             addedItems.classList.add('__empty') 
@@ -194,20 +214,32 @@ addToCart.addEventListener('click', () => {
     cartEmpty.classList.add('not__empty')
 })
 
+/**
+ * An event listener for toggling the state of the cart-div
+ */
 showCart.addEventListener('click', () => {
     cartDiv.classList.toggle('open')
 })
 
+/**
+ * An event listener for toggling the state of the light box
+ */
 imgTag.addEventListener('click', () => {
     lightBoxWrapper.classList.toggle('close')
 })
 
+/**
+ * An event listener for toggling the state of the light box
+ */
 lightBoxClose.addEventListener('click', () => {
     lightBoxWrapper.classList.toggle('close')
 })
 
+/**
+ * An event listener for changing the source of the light box image.
+ */
 lightBoxNext.addEventListener('click', () => {
-    const selectedThumnails = lightboxCarouselWrapper.querySelectorAll('.product--thumbnail')
+    const selectedThumnails = lightboxCarouselWrapper.querySelectorAll('.lightbox-product--thumbnail')
     
     if (lightBoxImageCounter >= imageArray.length - 1) {
         return
@@ -226,8 +258,11 @@ lightBoxNext.addEventListener('click', () => {
     selectedThumnails[lightBoxImageCounter].classList.add('active')
 })
 
+/**
+ * An event listener for changing the source of the light box image.
+ */
 lightBoxPrevious.addEventListener('click', () => {
-    const selectedThumnails = lightboxCarouselWrapper.querySelectorAll('.product--thumbnail')
+    const selectedThumnails = lightboxCarouselWrapper.querySelectorAll('.lightbox-product--thumbnail')
     if (lightBoxImageCounter <= 0) {
         return
     }

@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | E-commerce product page</title>
-
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
+  <!--Site heading component-->
   <header class="header">
     <div class="hamburger-menu-wrapper">
       <div class="hamburger-menu">
@@ -19,24 +16,24 @@
       </div>
     </div>
     <div class="heading-wrapper">
-      <h2 class="site--heading">sneakers</h2>
+      <h1 class="site--heading">sneakers</h1>
     </div>
     <div class="basket-avatar-wrapper">
       <div class="basket-icon">
-        <div class="total-items"><span></span></div>
-        <img src="./images/icon-cart.svg" alt="basket--icon" class="basket--icon">
+        <!--Element container for displaying the number of items in the cart-->
+        <div class="total-items"><span>0</span></div>
+        <img src="./images/icon-cart.svg" alt="cart" class="basket--icon">
       </div>
       <div class="avatar-icon">
         <img src="./images/image-avatar.png" alt="avatar--icon" class="avatar--icon">
       </div>
     </div>
   </header>
-
   <hr>
-
+  <!--Navigation bar component-->
   <nav class="nav-bar">
     <div class="close-icon">
-      <img src="./images/icon-close.svg" alt="close-icon" class="close--icon">
+      <img src="./images/icon-close.svg" alt="close" class="close--icon">
     </div>
     <ul class="nav-items">
       <li class="nav--item">
@@ -56,9 +53,9 @@
       </li>
     </ul>
   </nav>
-
+  <!--Main section component-->
   <main class="product-page">
-
+    <!--An outer wrapper to wrap all elements that manipulate images and the image itself.-->
     <div class="images-wrapper">
       <img src="./images/image-product-1.jpg" alt="product image" class="product--image">
       <div class="next-wrapper">
@@ -69,16 +66,15 @@
       </div>
       <div class="carousel-wrapper"></div>
     </div>
-
+    <!--An article to describe the product on the page-->
     <article class="item-description">
-      <h5>SNEAKER COMPANY</h5>
-      <h2>Fall Limited Edition Sneakers</h2>
-
+      <h2>SNEAKER COMPANY</h2>
+      <h3>Fall Limited Edition Sneakers</h3>
       <p class="item-description--paragraph">
         These low-profile sneakers are your perfect casual wear companion. Featuring a 
         durable rubber outer sole, they’ll withstand everything the weather can offer.
       </p>
-
+      <!--Container for wrapping child elements and manipulate layout for different screen sizes-->
       <div class="price-wrapper">
         <div class="left-wrapper">
           <span class="discounted--price">$125.00</span>
@@ -88,9 +84,7 @@
           <span class="marked--price">$250.00</span>
         </div>
       </div>
-
       <div class="quantity-add-to-cart-wrapper">
-
         <div class="quantity-wrapper">
           <div class="remove-icon">
             <img src="./images/icon-minus.svg" alt="remove" class="remove--icon">
@@ -100,46 +94,36 @@
             <img src="./images/icon-plus.svg" alt="add" class="add--icon">
           </div>
         </div>
-  
         <div class="add-to-cart">
           <div class="inner-wrapper">
             <img src="./images/icon-add-to-cart.svg" alt="add to cart" class="cart--icon">
             <span>Add to cart</span>
           </div>
         </div>
-
       </div>
-
     </article>
-
+    <!--Cart container for displaying the item selected-->
     <div class="cart-div">
-
       <p class="cart--text">
         Cart
       </p>
-
       <hr>
-
       <p class="cart--empty">
         Your cart is empty.
       </p>
-
       <div class="added-items">
         <div class="cart-checkout"></div>
         <button class="checkout--button">
           Checkout
         </button>
       </div>
-
     </div>
-
   </main>
-
+  <!--Dark background that appears when the navigation is open.-->
   <div class="navbar-background"></div>
-
+  <!--Light box container that appears on devices with large screens-->
   <div class="lightbox-wrapper close">
     <div class="lightbox-inner-wrapper">
-
       <span class="close--lightbox">
         <img src="./images/icon-close-lightbox.svg" alt="close light box" class="close--lightbox-img">
       </span>
@@ -151,15 +135,14 @@
         <img src="./images/icon-previous.svg" alt="previous" class="img--controller">
       </div>
       <div class="lightbox-carousel-wrapper"></div>
-
     </div>
   </div>
-  
+  <!--Attribution-->
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="http://timothynjoroge.herokuapp.com" target="_blank">Simplegoose</a>.
   </footer>
-
+  <!--Custom Javascript.-->
   <script src="./JS/main.js"></script>
 </body>
 </html>
