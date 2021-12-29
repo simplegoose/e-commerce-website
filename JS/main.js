@@ -58,6 +58,7 @@ function createCarousel(arrLen, className, elementToAppend, srcChangingEl) {
     for (let i = 0; i < arrLen; i++) {
         let thumbnailImg = document.createElement('img')
         thumbnailImg.classList.add(className)
+        thumbnailImg.alt = ' '
         thumbnailImg.src = thumbnailArray[i]
         thumbnailImg.addEventListener('click', () => {
             const selectedThumnails = document.querySelectorAll(`.${className}`)
@@ -170,6 +171,7 @@ addToCart.addEventListener('click', () => {
     cartItemsContainer.classList.add('cart-items-container')
     let thumbnail = document.createElement('img')
     thumbnail.classList.add('item--thumbnail')
+    thumbnail.alt = ''
     thumbnail.src = './images/image-product-1-thumbnail.jpg'
     cartItemsContainer.appendChild(thumbnail)
     let itemDescriptionDiv = document.createElement('div')
@@ -189,6 +191,7 @@ addToCart.addEventListener('click', () => {
     totalSpan.textContent = `$${parseFloat(itemPriceSpan.textContent.slice(1)) * quantity}.00`
     let deleteIcon = document.createElement('img')
     deleteIcon.classList.add('delete--icon')
+    deleteIcon.alt = ''
     deleteIcon.src = './images/icon-delete.svg'
     deleteIcon.addEventListener('click', () => {
         const cartCheckout = document.querySelector('.cart-checkout')
