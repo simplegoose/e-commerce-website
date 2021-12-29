@@ -58,7 +58,7 @@ function createCarousel(arrLen, className, elementToAppend, srcChangingEl) {
     for (let i = 0; i < arrLen; i++) {
         let thumbnailImg = document.createElement('img')
         thumbnailImg.classList.add(className)
-        thumbnailImg.alt = ' '
+        thumbnailImg.alt = 'thumnail'
         thumbnailImg.src = thumbnailArray[i]
         thumbnailImg.addEventListener('click', () => {
             const selectedThumnails = document.querySelectorAll(`.${className}`)
